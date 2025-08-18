@@ -28,6 +28,24 @@ h1, h2, h3 {
   padding: 80px 20px;
   max-width: 1100px;
   margin: 0 auto;
+  opacity: 0; /* hidden before animation */
+  transform: translateY(40px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.section:nth-child(1) { animation-delay: 0.2s; }
+.section:nth-child(2) { animation-delay: 0.4s; }
+.section:nth-child(3) { animation-delay: 0.6s; }
+.section:nth-child(4) { animation-delay: 0.8s; }
+
+/* =========================
+   Animations
+========================= */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================
@@ -46,14 +64,8 @@ header {
   margin: 0 auto;
   padding: 15px 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* centered nav */
   align-items: center;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #00adb5;
 }
 
 .nav-links {
@@ -82,6 +94,12 @@ header {
   min-height: 80vh;
   background: linear-gradient(135deg, #00adb5, #393e46);
   color: #fff;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .home h1 {
@@ -109,7 +127,7 @@ header {
   padding: 10px 20px;
   border-radius: 5px;
   font-weight: 500;
-  transition: background 0.3s, color 0.3s;
+  transition: transform 0.3s, background 0.3s, color 0.3s;
 }
 
 .btn-primary {
@@ -119,6 +137,7 @@ header {
 
 .btn-primary:hover {
   background: #ffc107;
+  transform: translateY(-3px);
 }
 
 .btn-secondary {
@@ -129,6 +148,7 @@ header {
 .btn-secondary:hover {
   background: #fff;
   color: #111;
+  transform: translateY(-3px);
 }
 
 /* =========================
@@ -151,6 +171,20 @@ header {
 .timeline-item {
   margin-bottom: 40px;
   position: relative;
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: slideIn 0.8s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.3s; }
+.timeline-item:nth-child(2) { animation-delay: 0.6s; }
+.timeline-item:nth-child(3) { animation-delay: 0.9s; }
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .timeline-item::before {
@@ -203,6 +237,11 @@ header {
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   text-align: center;
+  transition: transform 0.3s;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
 }
 
 /* =========================
