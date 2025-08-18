@@ -3,40 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Ah Wishnu - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <nav class="nav container">
-      <a href="#" class="brand">Wishnu<span>.</span></a>
-      <ul class="nav-list">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <a href="#home" class="logo">AhWishnu.</a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero container section">
-    <div class="grid-2">
-      <div class="hero-text">
-        <h1>Hello, I’m <span class="accent">Wishnu</span></h1>
-        <p class="lede">Transform data into insights and use AI to complete tasks more efficiently.</p>
-        <div class="cta-row">
-          <a href="#projects" class="btn primary">See Projects</a>
-          <a href="#contact" class="btn">Contact Me</a>
-        </div>
+  <!-- Home Section -->
+  <section id="home" class="section home">
+    <div class="content">
+      <h1>Hello, I’m <span>Ah Wishnu</span></h1>
+      <p>Finance professional transitioning into Data Analytics with a focus on AI-driven efficiency.  
+      Skilled in financial analysis, data visualization, and using AI tools to streamline workflows.</p>
+      <div class="buttons">
+        <a href="#portfolio" class="btn">See Portfolio</a>
+        <a href="#contact" class="btn-outline">Contact Me</a>
       </div>
-      <div class="hero-media">
-        <img src="assets/hero-illustration.png" alt="AI & Data Illustration">
+    </div>
+    <div class="image">
+      <img src="images/ai.png" alt="AI & Data Illustration">
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="section portfolio">
+    <h2>Portfolio</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>SQL Data Analysis</h3>
+        <p>Analyzed sales data using SQL queries to uncover trends and optimize performance.</p>
+      </div>
+      <div class="project-card">
+        <h3>Tableau Dashboard</h3>
+        <p>Interactive dashboard for financial reporting and project cost analysis.</p>
+      </div>
+      <div class="project-card">
+        <h3>AI-Powered Automation</h3>
+        <p>Implemented AI-driven automation for reporting, saving hours of manual work weekly.</p>
       </div>
     </div>
   </section>
 
-  <!-- Add Projects, Skills, Contact, Footer here -->
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+    <h2>Contact Me</h2>
+    <p>Let’s connect! You can reach me via email or LinkedIn:</p>
+    <ul>
+      <li>Email: <a href="mailto:ahwishnu@example.com">ahwishnu@example.com</a></li>
+      <li>LinkedIn: <a href="https://linkedin.com/in/ahwishnu" target="_blank">linkedin.com/in/ahwishnu</a></li>
+      <li>GitHub: <a href="https://github.com/awishnu" target="_blank">github.com/awishnu</a></li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Ah Wishnu. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
