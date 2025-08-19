@@ -1,79 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wishnu | Portfolio</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Sidebar nav -->
+  <div class="sidebar">
+    <nav>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#background">Background</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <!-- Main content -->
+  <div class="main-content">
+    <section id="home" class="panel">
+      <h1>Wishnu</h1>
+      <p>Transforming Data into Insightful Action. Leveraging AI for smarter decision-making.</p>
+      <a href="#portfolio" class="btn">View My Work</a>
+    </section>
 
-  <!-- Home Section -->
-  <section id="home">
-    <h1>Hi, I’m Wishnu</h1>
-    <p>
-      I’m passionate about transforming data into insightful actions.  
-      With a strong background in finance and a growing expertise in data analytics,  
-      I use AI to make work more efficient and impactful.
-    </p>
-    <a href="#portfolio" class="btn">See My Work</a>
-  </section>
-
-  <!-- Background Section -->
-  <section id="background">
-    <h2>My Background & Work Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item left">
-        <h3>Finance Manager - Construction Industry</h3>
-        <p>Over 10 years of experience in managing financial operations, budgeting, and strategic planning for large-scale projects.</p>
+    <section id="background" class="panel">
+      <h2>Background & Experience</h2>
+      <div class="timeline">
+        <div class="item">
+          <h3>Finance Professional</h3>
+          <p>10+ years in finance, construction, budgeting, and reporting.</p>
+        </div>
+        <div class="item">
+          <h3>Data & AI Enthusiast</h3>
+          <p>Transitioning into data analytics using AI, SQL, Tableau for insight-driven strategy.</p>
+        </div>
+        <div class="item">
+          <h3>Future Goal</h3>
+          <p>Become a Data Analyst using finance expertise combined with AI workflows.</p>
+        </div>
       </div>
-      <div class="timeline-item right">
-        <h3>AI & Data Analytics Enthusiast</h3>
-        <p>Currently transitioning into data analytics, focusing on SQL, Tableau, and AI-driven automation for better insights and decision-making.</p>
-      </div>
-      <div class="timeline-item left">
-        <h3>Future Goal</h3>
-        <p>Building a career as a Data Analyst to leverage finance background and AI tools for smarter, data-driven strategies.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio">
-    <h2>My Portfolio</h2>
-    <p>Here are some of the projects I’ve worked on:</p>
-    <ul>
-      <li>📊 SQL Analysis – Business Insights from Sales Data</li>
-      <li>📈 Tableau Dashboard – Financial & Construction Project Monitoring</li>
-      <li>🤖 AI Automation – Using AI for data cleaning and reporting</li>
-    </ul>
-  </section>
+    <section id="portfolio" class="panel">
+      <h2>Portfolio</h2>
+      <ul class="portfolio-list">
+        <li>📊 SQL Analytics</li>
+        <li>📈 Tableau Dashboards</li>
+        <li>🤖 AI Automation</li>
+      </ul>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Feel free to connect with me:</p>
-    <p>
-      <a href="mailto:wishnu@example.com">📧 Email</a> |
-      <a href="https://www.linkedin.com/" target="_blank">🔗 LinkedIn</a> |
-      <a href="https://github.com/" target="_blank">💻 GitHub</a>
-    </p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Wishnu | Built with passion and AI ⚡</p>
-  </footer>
-
+    <section id="contact" class="panel">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:wishnu@example.com">wishnu@example.com</a></p>
+      <p>
+        <a href="https://linkedin.com/" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/" target="_blank">GitHub</a>
+      </p>
+    </section>
+  </div>
 </body>
 </html>
