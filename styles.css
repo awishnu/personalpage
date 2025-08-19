@@ -2,8 +2,8 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #111;
-  color: #eee;
+  background: #f8f9fa;
+  color: #333;
   display: flex;
 }
 
@@ -11,7 +11,7 @@ body {
 .sidebar {
   width: 220px;
   min-height: 100vh;
-  background: #1c1c1e;
+  background: #2C3E50; /* navy */
   position: fixed;
   left: 0;
   top: 0;
@@ -25,16 +25,16 @@ body {
   margin-bottom: 1.5rem;
 }
 .sidebar nav ul li a {
-  color: #ccc;
+  color: #bdc3c7;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   padding-left: 1.5rem;
   display: block;
   transition: color 0.3s;
 }
 .sidebar nav ul li a.active,
 .sidebar nav ul li a:hover {
-  color: #1abc9c;
+  color: #3498db; /* soft accent */
 }
 
 /* Main Content */
@@ -61,30 +61,31 @@ body {
 #home {
   align-items: center;
   text-align: center;
-  background: linear-gradient(135deg, #001f3f, #0074d9);
-  color: #fff;
+  background: #ffffff;
+  color: #2C3E50;
 }
 #home h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
-  color: #1abc9c;
+  color: #2C3E50;
 }
 #home p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-bottom: 2rem;
+  color: #555;
 }
 .btn {
-  background: #1abc9c;
-  color: #111;
+  background: #3498db;
+  color: #fff;
   padding: 0.8rem 1.8rem;
-  border-radius: 30px;
+  border-radius: 6px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
   transition: background 0.3s, transform 0.3s;
 }
 .btn:hover {
-  background: #16a085;
-  transform: translateY(-3px);
+  background: #2980b9;
+  transform: translateY(-2px);
 }
 
 /* Timeline */
@@ -95,7 +96,7 @@ body {
   margin-bottom: 2rem;
 }
 .timeline .item h3 {
-  color: #1abc9c;
+  color: #2C3E50;
   margin-bottom: 0.5rem;
 }
 
@@ -106,12 +107,13 @@ body {
 }
 .portfolio-list li {
   margin: 0.8rem 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  color: #444;
 }
 
 /* Contact */
 #contact a {
-  color: #1abc9c;
+  color: #3498db;
   text-decoration: none;
 }
 #contact a:hover {
