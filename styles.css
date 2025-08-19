@@ -9,9 +9,9 @@ body {
 
 /* Sidebar */
 .sidebar {
-  width: 80px; /* slimmer */
+  width: 180px; /* wider sidebar */
   min-height: 100vh;
-  background: #2C3E50; /* navy */
+  background: #2C3E50; /* dark navy */
   position: fixed;
   left: 0;
   top: 0;
@@ -31,15 +31,15 @@ body {
 .sidebar nav ul li a {
   color: #bdc3c7;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: color 0.3s;
 }
 .sidebar nav ul li a i {
-  font-size: 1.3rem;
-  margin-bottom: 0.3rem;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
 }
 .sidebar nav ul li a.active,
 .sidebar nav ul li a:hover {
@@ -48,8 +48,8 @@ body {
 
 /* Main Content */
 .main-content {
-  margin-left: 80px; /* updated margin for slim sidebar */
-  width: calc(100% - 80px);
+  margin-left: 180px; /* adjusted for wider sidebar */
+  width: calc(100% - 180px);
 }
 .panel {
   min-height: 100vh;
@@ -66,7 +66,7 @@ body {
 .panel:nth-of-type(3) { animation-delay: 0.9s; }
 .panel:nth-of-type(4) { animation-delay: 1.2s; }
 
-/* Section Specific */
+/* Home Section */
 #home {
   align-items: center;
   text-align: center;
@@ -97,7 +97,10 @@ body {
   transform: translateY(-2px);
 }
 
-/* Timeline */
+/* Profile (ex-Background) Section */
+#profile {
+  background: #fefefe;
+}
 .timeline {
   max-width: 700px;
 }
