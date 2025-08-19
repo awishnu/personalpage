@@ -6,175 +6,154 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0f172a;
+  color: #f8fafc;
   line-height: 1.6;
-  background: #0d1117;
-  color: #f0f0f0;
+  scroll-behavior: smooth;
 }
 
-/* Sidebar Navigation */
+/* Navigation */
 nav {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 200px;
-  background: #161b22;
-  padding-top: 2rem;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  background: rgba(15, 23, 42, 0.95);
+  padding: 1rem;
+  text-align: center;
+  z-index: 1000;
 }
 
 nav ul {
   list-style: none;
-}
-
-nav ul li {
-  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
 
 nav ul li a {
-  color: #c9d1d9;
+  color: #f8fafc;
   text-decoration: none;
-  font-size: 1rem;
+  font-weight: bold;
   transition: color 0.3s ease;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-  color: #58a6ff;
+nav ul li a:hover {
+  color: #38bdf8;
 }
 
 /* Sections */
 section {
-  margin-left: 200px; /* offset for sidebar */
   min-height: 100vh;
-  padding: 4rem;
+  padding: 6rem 2rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 1s ease-in;
 }
 
 /* Home Section */
-#home {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Full screen height */
-  padding-left: 220px; /* space for the sidebar */
-  background: linear-gradient(135deg, #1e3c72, #2a5298); /* Full gradient background */
-  color: white;
-  text-align: center;
-}
-
 #home h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  animation: fadeInUp 1.2s ease-in-out;
+  color: #38bdf8;
 }
 
 #home p {
-  font-size: 1.2rem;
+  max-width: 600px;
   margin-bottom: 1.5rem;
-  animation: fadeInUp 1.6s ease-in-out;
 }
 
-#home .btn {
-  background: #007bff;
-  color: white;
-  padding: 0.7rem 1.5rem;
-  border-radius: 25px;
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #38bdf8;
+  color: #0f172a;
   font-weight: bold;
-  transition: background 0.3s;
-  animation: fadeInUp 2s ease-in-out;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
-#home .btn:hover {
-  background: #0056b3;
+.btn:hover {
+  background: #0ea5e9;
+  transform: scale(1.05);
 }
 
-/* Background Section (Timeline Layout) */
-#background {
-  background: #0d1117;
-}
-
+/* Timeline for Background & Experience */
 .timeline {
   position: relative;
-  margin: 2rem 0;
-  padding-left: 40px;
-  border-left: 2px solid #58a6ff;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: #38bdf8;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
 }
 
 .timeline-item {
-  margin-bottom: 2rem;
+  padding: 1rem;
   position: relative;
+  width: 50%;
 }
 
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -11px;
-  top: 5px;
-  width: 20px;
-  height: 20px;
-  background: #58a6ff;
-  border-radius: 50%;
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
 }
 
 .timeline-item h3 {
-  font-size: 1.3rem;
   margin-bottom: 0.5rem;
+  color: #38bdf8;
 }
 
-.timeline-item p {
-  font-size: 1rem;
-  color: #c9d1d9;
+/* Portfolio */
+#portfolio ul {
+  list-style: none;
+  margin-top: 1rem;
 }
 
-/* Portfolio Section */
-#portfolio {
-  background: #161b22;
+#portfolio ul li {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
 }
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+/* Contact */
+#contact a {
+  color: #38bdf8;
+  text-decoration: none;
+  margin: 0 0.5rem;
 }
 
-.portfolio-item {
-  background: #21262d;
-  padding: 1.5rem;
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+#contact a:hover {
+  text-decoration: underline;
 }
 
-.portfolio-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-}
-
-/* Contact Section */
-#contact {
-  background: #0d1117;
-}
-
-.contact-info {
-  max-width: 600px;
-}
-
-.contact-info p {
-  margin-bottom: 1rem;
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #1e293b;
+  margin-top: 2rem;
+  font-size: 0.9rem;
 }
 
 /* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
