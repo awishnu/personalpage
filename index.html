@@ -3,78 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Wishnu Personal Page</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation Bar -->
+
+  <!-- ===== Navigation Bar ===== -->
   <header>
     <nav class="navbar">
-      <div class="logo">MyPortfolio</div>
+      <div class="logo">Wishnu</div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About Me</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Contact Me</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <h1>Hi, I'm [Your Name]</h1>
-    <p>Aspiring Data Analyst | Finance Professional | AI Enthusiast</p>
+  <!-- ===== Home Section ===== -->
+  <section id="home" class="section home">
+    <div class="home-content">
+      <h1>Hello, I’m Wishnu 👋</h1>
+      <p>Transforming Data into Insightful Action and utilizing AI for high efficiency.</p>
+    </div>
   </section>
 
-  <!-- About Me Section -->
-  <section id="about" class="about">
+  <!-- ===== About Me Section ===== -->
+  <section id="about" class="section about">
     <h2>About Me</h2>
-    <p>I am a finance professional transitioning into data analytics. With over a decade of experience in the construction industry, 
-    I now focus on transforming data into insightful actions and leveraging AI for efficiency. This site showcases my journey, skills, 
-    and portfolio projects.</p>
-  </section>
-
-  <!-- Featured Projects Section -->
-  <section id="projects" class="projects">
-    <h2>Featured Projects</h2>
-    <div class="project-list">
-      <div class="project-card">
-        <h3>Project 1</h3>
-        <p>Brief description of your featured project.</p>
+    <p>
+      I’m a finance professional transitioning into a data analyst role, passionate about leveraging AI for smarter decision-making.
+    </p>
+    
+    <!-- Timeline -->
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="year">2020 - Now</span>
+        <p>Finance Specialist at Construction Company</p>
       </div>
-      <div class="project-card">
-        <h3>Project 2</h3>
-        <p>Brief description of another project.</p>
+      <div class="timeline-item">
+        <span class="year">2015 - 2020</span>
+        <p>Accounting & Budget Analyst</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio">
-    <h2>Portfolio & Resources</h2>
-    <div class="portfolio-list">
-      <div class="portfolio-card">
-        <h3>SQL Project</h3>
-        <p>Analysis with SQL queries and visualizations.</p>
-      </div>
-      <div class="portfolio-card">
-        <h3>Tableau Dashboard</h3>
-        <p>Interactive dashboard highlighting insights.</p>
+      <div class="timeline-item">
+        <span class="year">2010 - 2015</span>
+        <p>Financial Officer</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>If you'd like to collaborate or learn more, feel free to reach out.</p>
-    <p>Email: yourname@email.com</p>
+  <!-- ===== Portfolio Section ===== -->
+  <section id="portfolio" class="section portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="card"> <h3>SQL Data Analysis</h3><p>Analyzed sales and created dashboards.</p> </div>
+      <div class="card"> <h3>AI Automation</h3><p>Used AI tools to streamline reporting tasks.</p> </div>
+      <div class="card"> <h3>Financial Dashboard</h3><p>Built Tableau dashboards for executives.</p> </div>
+    </div>
+    <button class="btn">See More Projects</button>
   </section>
 
-  <!-- Footer -->
+  <!-- ===== Contact Section ===== -->
+  <section id="contact" class="section contact">
+    <h2>Contact Me</h2>
+    <p>Let’s connect! Reach me at:</p>
+    <a href="mailto:yourname@email.com" class="btn">Email Me</a>
+  </section>
+
+  <!-- ===== Footer ===== -->
   <footer>
-    <p>&copy; 2025 MyPortfolio. Crafted with ❤️</p>
+    <p>© 2025 Wishnu | Built with ❤️ and hosted on GitHub Pages</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
