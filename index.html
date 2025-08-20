@@ -1,45 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Me</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wishnu | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- ===== Navigation ===== -->
+  <nav class="navbar">
+    <div class="logo">Wishnu</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Home Section ===== -->
+  <section id="home" class="home-section">
+    <div class="home-content">
+      <h1>Hello, I’m Wishnu 👋</h1>
+      <p>Transforming Data into Insightful Action and utilizing AI for high efficiency.</p>
+    </div>
+  </section>
+
+  <!-- ===== About Me Section ===== -->
+  <section id="about" class="about-section">
+    <h2>About Me</h2>
+    <p>
+      I’m a finance professional transitioning into a data analyst role, passionate about leveraging AI for smarter decision-making.
+    </p>
+    <ul class="timeline">
+      <li><strong>2020 - Now</strong>: Finance Specialist at Construction Company</li>
+      <li><strong>2015 - 2020</strong>: Accounting & Budget Analyst</li>
+      <li><strong>2010 - 2015</strong>: Financial Officer</li>
+    </ul>
+  </section>
+
+  <!-- ===== Portfolio Section ===== -->
+  <section id="portfolio" class="portfolio-section">
+    <h2>Portfolio</h2>
+    <div class="portfolio-items">
+      <div class="portfolio-card">
+        <h3>SQL Data Analysis</h3>
+        <p>Analyzed sales and created dashboards.</p>
+      </div>
+      <div class="portfolio-card">
+        <h3>AI Automation</h3>
+        <p>Used AI tools to streamline reporting tasks.</p>
+      </div>
+      <div class="portfolio-card">
+        <h3>Financial Dashboard</h3>
+        <p>Built Tableau dashboards for executives.</p>
+      </div>
+    </div>
+    <button class="btn">See More Projects</button>
+  </section>
 
   <!-- ===== Contact Section ===== -->
   <section id="contact" class="contact-section">
     <h2>Contact</h2>
     <div class="contact-container">
-
+      
       <!-- Contact Form -->
       <div class="contact-form">
         <form action="#" method="POST">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name.." required>
-
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Your email.." required>
-
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="6" placeholder="Write something.." required></textarea>
-
-          <button type="submit" class="btn">Submit</button>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea rows="6" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
         </form>
       </div>
 
       <!-- Contact Info -->
       <div class="contact-info">
-        <h3>Contact Info</h3>
         <p><strong>Email:</strong> <a href="mailto:example@example.com">example@example.com</a></p>
         <p><strong>Phone:</strong> +61 0417 123 XXX</p>
-        <p><strong>Address:</strong> Clem Jones Promenade, South Brisbane QLD 4101 
-          <a href="https://goo.gl/maps/" target="_blank">(View Map)</a>
-        </p>
+        <p><strong>Address:</strong> Clem Jones Promenade, South Brisbane QLD 4101</p>
       </div>
     </div>
   </section>
 
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>© 2025 Wishnu | Built with ❤️ and hosted on GitHub Pages</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
