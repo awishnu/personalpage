@@ -61,38 +61,38 @@ h2 {
 }
 
 /* ===== Home ===== */
-.home-section {
-  background: #e63946;
-  color: #fff;
-  text-align: center;
+#home {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  text-align: center;
+  padding: 0 20px;
+  color: white;
+  position: relative;
+  overflow: hidden;
 }
 
-.home-section h1 {
-  font-size: 3rem;
-  margin-bottom: 15px;
+/* Animated Gradient Background */
+#home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, #667eea, #764ba2, #ff6a00, #ee0979);
+  background-size: 800% 800%;
+  animation: gradientBG 15s ease infinite;
+  opacity: 0.8; /* make it slightly transparent */
+  z-index: -1;
 }
 
-.home-section p {
-  font-size: 1.2rem;
-}
-
-/* ===== About ===== */
-.about-section {
-  background: #f9f9f9;
-}
-
-.timeline {
-  margin-top: 20px;
-  list-style: none;
-}
-
-.timeline li {
-  margin-bottom: 10px;
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* ===== Portfolio ===== */
