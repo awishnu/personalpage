@@ -1,96 +1,137 @@
-body {
+/* ===== General Reset ===== */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background: #f4f4f4;
-  color: #333;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Navbar */
-.navbar {
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: #0f0f0f;
+  color: #f1f1f1;
+  line-height: 1.6;
+}
+
+/* ===== Navbar ===== */
+header {
+  position: fixed;
+  width: 100%;
+  background: #111;
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #111;
-  color: #fff;
-  padding: 1rem 2rem;
-  position: fixed;
-  width: 100%;
-  top: 0;
   z-index: 1000;
 }
 
-.navbar .logo {
+.logo {
   font-size: 1.5rem;
   font-weight: bold;
+  color: #00adb5;
 }
 
-.navbar ul {
+.nav-links {
   list-style: none;
   display: flex;
-  margin: 0;
-  padding: 0;
 }
 
-.navbar ul li {
+.nav-links li {
   margin-left: 20px;
 }
 
-.navbar ul li a {
+.nav-links a {
+  color: #f1f1f1;
   text-decoration: none;
-  color: #fff;
   transition: color 0.3s;
 }
 
-.navbar ul li a:hover {
-  color: #00bcd4;
+.nav-links a:hover {
+  color: #00adb5;
 }
 
-/* Hero Section */
-.hero {
-  height: 100vh;
+/* ===== Sections ===== */
+.section {
+  min-height: 100vh;
+  padding: 100px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background: #222;
-  color: #fff;
   text-align: center;
-  padding: 0 20px;
-  margin-top: 60px;
 }
 
-/* Section Styling */
-section {
-  padding: 60px 20px;
-  max-width: 1000px;
-  margin: auto;
+.home {
+  background: linear-gradient(135deg, #00adb5, #393e46);
 }
 
-h2 {
-  text-align: center;
+.home h1 {
+  font-size: 2.5rem;
   margin-bottom: 20px;
+  animation: fadeIn 2s ease;
 }
 
-/* Cards */
-.project-list, .portfolio-list {
+/* ===== About Me ===== */
+.about .timeline {
+  margin-top: 30px;
+}
+
+.timeline-item {
+  margin: 15px 0;
+}
+
+.timeline-item .year {
+  font-weight: bold;
+  color: #00adb5;
+}
+
+/* ===== Portfolio ===== */
+.portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  margin: 30px 0;
 }
 
-.project-card, .portfolio-card {
-  background: #fff;
+.card {
+  background: #222;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  transition: transform 0.3s;
 }
 
-/* Footer */
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.btn {
+  background: #00adb5;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #007f86;
+}
+
+/* ===== Contact ===== */
+.contact p {
+  margin-bottom: 20px;
+}
+
+/* ===== Footer ===== */
 footer {
   text-align: center;
   padding: 20px;
   background: #111;
-  color: #fff;
+  font-size: 0.9rem;
   margin-top: 20px;
+}
+
+/* ===== Animation ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
