@@ -9,6 +9,7 @@ body {
   background: var(--bg-color);
   color: var(--text-color);
   transition: background 0.3s, color 0.3s;
+  scroll-behavior: smooth;
 }
 
 /* Theme Colors */
@@ -22,16 +23,18 @@ body.dark {
   --text-color: #e4e4e4;
 }
 
-/* Navbar */
+/* Navbar - FIXED at top */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background: var(--bg-color);
-  position: sticky;
+  position: fixed;  /* Fixed navbar */
   top: 0;
-  z-index: 100;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   border-bottom: 1px solid #ccc;
 }
 .nav-links {
@@ -51,8 +54,17 @@ body.dark {
   cursor: pointer;
 }
 
-/* Sections */
+/* Add top padding so sections don't hide behind fixed navbar */
+body {
+  padding-top: 70px; /* Adjust to navbar height */
+}
+
+/* Sections with minimum height 768px */
 .section {
+  min-height: 768px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 4rem 2rem;
   text-align: center;
 }
