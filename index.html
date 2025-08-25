@@ -1,102 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Data Analyst Portfolio</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="layout">
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
-      <div class="profile">
-        <img src="your-photo.jpg" alt="Profile Photo" />
-        <h2>Your Name</h2>
-        <p>Data Analyst | AI for Efficiency</p>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#home">🏠 Home</a></li>
-          <li><a href="#about">👤 About</a></li>
-          <li><a href="#portfolio">📂 Portfolio</a></li>
-          <li><a href="#contact">✉️ Contact</a></li>
-        </ul>
-      </nav>
-      <div class="sidebar-footer">
-        <button id="theme-toggle">🌙 Dark Mode</button>
-      </div>
-    </aside>
-
-    <!-- Mobile Header -->
-    <header class="mobile-header">
-      <button id="menu-toggle">☰</button>
-      <h1>My Portfolio</h1>
-    </header>
-
-    <!-- Main Content -->
-    <main class="content">
-      <!-- Category Cards -->
-      <section class="categories">
-        <h2>Categories</h2>
-        <div class="category-container">
-          <div class="category-card" style="background:#FFB74D;">Articles</div>
-          <div class="category-card" style="background:#81C784;">How Tos</div>
-          <div class="category-card" style="background:#64B5F6;">Humor</div>
-          <div class="category-card" style="background:#E57373;">Podcasts</div>
-          <div class="category-card" style="background:#BA68C8;">Links</div>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="your-photo.jpg" alt="Profile Photo">
+            <h2>Your Name</h2>
+            <p>Data Analyst | AI Enthusiast</p>
         </div>
-      </section>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="toggle-btn">☰</button>
+    </div>
 
-      <!-- Home -->
-      <section id="home" class="section">
-        <h1>Transforming Data into Insights</h1>
-        <p>Leveraging AI for efficient analytics.</p>
-        <a href="resume.pdf" class="btn" download>Download Resume</a>
-      </section>
+    <div class="main-content">
+        <section id="home" class="section">
+            <h1>Welcome to My Website</h1>
+            <p>Transforming Data into Insights using AI for Efficiency.</p>
+        </section>
 
-      <!-- About -->
-      <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>I am a Data Analyst experienced in AI-driven analytics, passionate about transforming data into actionable insights efficiently.</p>
-      </section>
+        <section id="about" class="section">
+            <h1>About Me</h1>
+            <p>I am a finance professional transitioning into data analytics, leveraging AI for smarter solutions.</p>
+        </section>
 
-      <!-- Portfolio -->
-      <section id="portfolio" class="section">
-        <h2>Portfolio</h2>
-        <div class="portfolio-grid">
-          <div class="card">
-            <img src="project1.jpg" alt="Project 1" />
-            <div class="card-content">
-              <h3>Sales Dashboard</h3>
-              <p>Interactive Tableau dashboard with AI forecasting.</p>
-              <a href="#" class="btn-small">View Project</a>
+        <section id="portfolio" class="section">
+            <h1>Portfolio</h1>
+            <div class="portfolio-grid">
+                <div class="card">Project 1</div>
+                <div class="card">Project 2</div>
+                <div class="card">Project 3</div>
             </div>
-          </div>
-          <div class="card">
-            <img src="project2.jpg" alt="Project 2" />
-            <div class="card-content">
-              <h3>Churn Analysis</h3>
-              <p>Python ML model for predicting customer churn.</p>
-              <a href="#" class="btn-small">View Project</a>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Contact -->
-      <section id="contact" class="section">
-        <h2>Contact Me</h2>
-        <ul>
-          <li>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></li>
-          <li>WhatsApp: <a href="https://wa.me/628123456789">+62 812-3456-789</a></li>
-          <li>LinkedIn: <a href="https://linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</a></li>
-          <li>GitHub: <a href="https://github.com/yourgithub">github.com/yourgithub</a></li>
-        </ul>
-      </section>
-    </main>
-  </div>
-  <script src="script.js"></script>
+        <section id="contact" class="section">
+            <h1>Contact</h1>
+            <p>Email: yourname@example.com</p>
+        </section>
+    </div>
 </body>
 </html>
