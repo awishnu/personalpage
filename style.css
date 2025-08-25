@@ -1,182 +1,112 @@
-/* General Reset */
+/* Global Settings */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Arial", sans-serif;
 }
-
 body {
-  line-height: 1.6;
-  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
 }
 
-/* ===== Navbar ===== */
+/* Theme Colors */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333;
+  --primary-color: #1e90ff;
+}
+body.dark {
+  --bg-color: #121212;
+  --text-color: #e4e4e4;
+}
+
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
-  background: #222;
-  color: #fff;
-  position: fixed;
+  padding: 1rem 2rem;
+  background: var(--bg-color);
+  position: sticky;
   top: 0;
-  width: 100%;
-  z-index: 1000;
+  z-index: 100;
+  border-bottom: 1px solid #ccc;
 }
-
-.navbar .logo {
-  font-size: 1.4rem;
-  font-weight: bold;
-}
-
-.navbar .nav-links {
+.nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 1.5rem;
 }
-
-.navbar .nav-links a {
-  color: #fff;
+.nav-links a {
   text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s;
+  color: var(--text-color);
+  font-weight: 600;
 }
-
-.navbar .nav-links a:hover {
-  color: #e63946;
-}
-
-/* ===== Sections ===== */
-section {
-  padding: 80px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #222;
-}
-
-/* ===== Home ===== */
-#home {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 20px;
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Animated Gradient Background */
-#home::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(270deg, #667eea, #764ba2, #ff6a00, #ee0979);
-  background-size: 800% 800%;
-  animation: gradientBG 15s ease infinite;
-  opacity: 0.8; /* make it slightly transparent */
-  z-index: -1;
-}
-
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* ===== Portfolio ===== */
-.portfolio-section {
-  background: #fff;
-  text-align: center;
-}
-
-.portfolio-items {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.portfolio-card {
-  background: #f2f4f7;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-  transition: transform 0.3s;
-}
-
-.portfolio-card:hover {
-  transform: translateY(-5px);
-}
-
-.btn {
-  background: #e63946;
-  color: #fff;
+#theme-toggle {
+  background: none;
   border: none;
-  padding: 12px 20px;
-  font-size: 1rem;
-  border-radius: 6px;
+  font-size: 1.2rem;
   cursor: pointer;
+}
+
+/* Sections */
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.section h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Buttons */
+.btn, .btn-small {
+  display: inline-block;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
   transition: background 0.3s;
 }
-
-.btn:hover {
-  background: #c02633;
+.btn:hover, .btn-small:hover {
+  background: #005ecb;
+}
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
 }
 
-/* ===== Contact ===== */
-.contact-container {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
+/* Portfolio Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
-
-.contact-form {
-  flex: 2;
-  min-width: 300px;
+.card {
+  background: var(--bg-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
 }
-
-.contact-form input,
-.contact-form textarea {
+.card:hover {
+  transform: translateY(-5px);
+}
+.card img {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  height: 180px;
+  object-fit: cover;
 }
-
-.contact-info {
-  flex: 1;
-  min-width: 250px;
-}
-
-/* ===== Footer ===== */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #222;
-  color: #fff;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .contact-container {
-    flex-direction: column;
-  }
+.card-content {
+  padding: 1rem;
 }
