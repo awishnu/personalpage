@@ -1,20 +1,12 @@
-/* Global Settings */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Open Sans', sans-serif;
   background: var(--bg-color);
   color: var(--text-color);
-  transition: background 0.3s, color 0.3s;
-  scroll-behavior: smooth;
+  transition: 0.3s;
 }
-
-/* Theme Colors */
 :root {
-  --bg-color: #ffffff;
+  --bg-color: #fff;
   --text-color: #333;
   --primary-color: #1e90ff;
 }
@@ -22,101 +14,103 @@ body.dark {
   --bg-color: #121212;
   --text-color: #e4e4e4;
 }
-
-/* Navbar - FIXED at top */
-.navbar {
+.layout {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
   background: var(--bg-color);
-  position: fixed;  /* Fixed navbar */
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  z-index: 1000;
-  border-bottom: 1px solid #ccc;
+  height: 100%;
+  padding: 1rem;
 }
-.nav-links {
+.profile {
+  text-align: center;
+}
+.profile img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+.profile h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+nav ul {
   list-style: none;
-  display: flex;
-  gap: 1.5rem;
+  padding: 0;
+  margin-top: 2rem;
 }
-.nav-links a {
+nav ul li {
+  margin-bottom: 1rem;
+}
+nav ul li a {
   text-decoration: none;
   color: var(--text-color);
   font-weight: 600;
 }
+.sidebar-footer {
+  margin-top: auto;
+  text-align: center;
+}
 #theme-toggle {
   background: none;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
+  color: var(--text-color);
 }
 
-/* Add top padding so sections don't hide behind fixed navbar */
-body {
-  padding-top: 70px; /* Adjust to navbar height */
+/* Main Content */
+.content {
+  margin-left: 250px; /* To prevent overlap with sidebar */
+  flex: 1;
 }
-
-/* Sections with minimum height 768px */
 .section {
   min-height: 768px;
+  padding: 4rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2rem;
-  text-align: center;
 }
 .section h2 {
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
   color: var(--primary-color);
+  margin-bottom: 1rem;
 }
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* Buttons */
 .btn, .btn-small {
-  display: inline-block;
   background: var(--primary-color);
   color: #fff;
   padding: 0.75rem 1.5rem;
   text-decoration: none;
   border-radius: 5px;
-  font-weight: 600;
-  transition: background 0.3s;
+  margin-top: 1rem;
 }
-.btn:hover, .btn-small:hover {
-  background: #005ecb;
-}
-.btn-small {
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-}
-
-/* Portfolio Grid */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
   margin-top: 2rem;
 }
 .card {
   background: var(--bg-color);
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-.card:hover {
-  transform: translateY(-5px);
+  overflow: hidden;
 }
 .card img {
   width: 100%;
-  height: 180px;
+  height: 150px;
   object-fit: cover;
 }
 .card-content {
