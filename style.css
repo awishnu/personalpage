@@ -15,10 +15,14 @@
     height: 100%;
     background: #f7f7f7;
     border-right: 1px solid #ddd;
+
+    /* Flex center everything */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers the image horizontally */
-    padding: 40px 20px;
+    justify-content: center;  /* Vertical center */
+    align-items: center;      /* Horizontal center */
+    text-align: center;       /* Align text center */
+    padding: 20px;
 }
 
 .sidebar .profile img {
@@ -29,18 +33,9 @@
     margin-bottom: 15px;
 }
 
-/* Align text to left but keep it under the centered image */
-.sidebar .profile h2,
-.sidebar .profile p {
-    text-align: left;
-    width: 100%;  /* Forces text to take full width */
-    padding-left: 10px; /* Slight indent for better look */
-    box-sizing: border-box;
-}
-
 .sidebar .profile h2 {
     font-size: 20px;
-    margin-bottom: 5px;
+    margin: 10px 0 5px;
 }
 
 .sidebar .profile p {
@@ -66,8 +61,8 @@
     color: #333;
     font-weight: bold;
     display: block;
-    padding: 10px 10px;
     transition: background 0.3s;
+    padding: 8px 12px;
 }
 
 .sidebar nav ul li a:hover {
