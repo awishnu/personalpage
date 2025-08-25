@@ -1,93 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wishnu | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of a Data Analyst leveraging AI for efficiency. Showcasing projects, skills, and contact details.">
+  <title>Data Analyst Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font (similar to Tableau style) -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">My Portfolio</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="Toggle Light/Dark Mode">🌙</button>
+    </nav>
+  </header>
 
-  <!-- ===== Navigation ===== -->
-  <nav class="navbar">
-    <div class="logo">Wishnu</div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- ===== Home Section ===== -->
-  <section id="home" class="home-section">
-    <div class="home-content">
-      <h1>Hello, I’m Wishnu 👋</h1>
-      <p>Transforming Data into Insightful Action and utilizing AI for high efficiency.</p>
+  <!-- Home Section -->
+  <section id="home" class="section home">
+    <div class="container">
+      <h1>Transforming Data into Insights</h1>
+      <p>Leveraging AI to deliver efficient, actionable analytics.</p>
+      <a href="resume.pdf" class="btn" download>Download Resume</a>
     </div>
   </section>
 
-  <!-- ===== About Me Section ===== -->
-  <section id="about" class="about-section">
-    <h2>About Me</h2>
-    <p>
-      I’m a finance professional transitioning into a data analyst role, passionate about leveraging AI for smarter decision-making.
-    </p>
-    <ul class="timeline">
-      <li><strong>2020 - Now</strong>: Finance Specialist at Construction Company</li>
-      <li><strong>2015 - 2020</strong>: Accounting & Budget Analyst</li>
-      <li><strong>2010 - 2015</strong>: Financial Officer</li>
-    </ul>
-  </section>
-
-  <!-- ===== Portfolio Section ===== -->
-  <section id="portfolio" class="portfolio-section">
-    <h2>Portfolio</h2>
-    <div class="portfolio-items">
-      <div class="portfolio-card">
-        <h3>SQL Data Analysis</h3>
-        <p>Analyzed sales and created dashboards.</p>
-      </div>
-      <div class="portfolio-card">
-        <h3>AI Automation</h3>
-        <p>Used AI tools to streamline reporting tasks.</p>
-      </div>
-      <div class="portfolio-card">
-        <h3>Financial Dashboard</h3>
-        <p>Built Tableau dashboards for executives.</p>
-      </div>
+  <!-- About Section -->
+  <section id="about" class="section about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>Hello! I'm a Data Analyst with experience in utilizing AI to enhance data-driven decisions. Skilled in SQL, Python, Tableau, and modern analytics tools, I strive to turn complex data into actionable insights efficiently.</p>
     </div>
-    <button class="btn">See More Projects</button>
   </section>
 
-  <!-- ===== Contact Section ===== -->
-  <section id="contact" class="contact-section">
-    <h2>Contact</h2>
-    <div class="contact-container">
-      
-      <!-- Contact Form -->
-      <div class="contact-form">
-        <form action="#" method="POST">
-          <input type="text" placeholder="Your Name" required>
-          <input type="email" placeholder="Your Email" required>
-          <textarea rows="6" placeholder="Your Message" required></textarea>
-          <button type="submit" class="btn">Send Message</button>
-        </form>
-      </div>
-
-      <!-- Contact Info -->
-      <div class="contact-info">
-        <p><strong>Email:</strong> <a href="mailto:example@example.com">example@example.com</a></p>
-        <p><strong>Phone:</strong> +61 0417 123 XXX</p>
-        <p><strong>Address:</strong> Clem Jones Promenade, South Brisbane QLD 4101</p>
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="section portfolio">
+    <div class="container">
+      <h2>Portfolio</h2>
+      <div class="portfolio-grid">
+        <!-- Example Project Card -->
+        <div class="card">
+          <img src="project1.jpg" alt="Project 1">
+          <div class="card-content">
+            <h3>Sales Dashboard</h3>
+            <p>Interactive Tableau dashboard for regional sales performance using AI forecasting models.</p>
+            <a href="#" target="_blank" class="btn-small">View Project</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="project2.jpg" alt="Project 2">
+          <div class="card-content">
+            <h3>Customer Churn Analysis</h3>
+            <p>Python-based predictive analytics project to identify churn risks using ML algorithms.</p>
+            <a href="#" target="_blank" class="btn-small">View Project</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Footer ===== -->
-  <footer>
-    <p>© 2025 Wishnu | Built with ❤️ and hosted on GitHub Pages</p>
-  </footer>
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <ul>
+        <li>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></li>
+        <li>WhatsApp: <a href="https://wa.me/628123456789">+62 812-3456-789</a></li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></li>
+        <li>GitHub: <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></li>
+      </ul>
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
