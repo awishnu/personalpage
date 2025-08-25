@@ -17,7 +17,7 @@
     border-right: 1px solid #ddd;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align everything to the left */
+    align-items: center; /* Centers the image horizontally */
     padding: 40px 20px;
 }
 
@@ -29,19 +29,27 @@
     margin-bottom: 15px;
 }
 
+/* Align text to left but keep it under the centered image */
+.sidebar .profile h2,
+.sidebar .profile p {
+    text-align: left;
+    width: 100%;  /* Forces text to take full width */
+    padding-left: 10px; /* Slight indent for better look */
+    box-sizing: border-box;
+}
+
 .sidebar .profile h2 {
     font-size: 20px;
     margin-bottom: 5px;
-    text-align: left;
 }
 
 .sidebar .profile p {
     font-size: 14px;
     color: #555;
     margin-bottom: 20px;
-    text-align: left;
 }
 
+/* Navigation */
 .sidebar nav ul {
     list-style: none;
     padding: 0;
@@ -57,8 +65,8 @@
     text-decoration: none;
     color: #333;
     font-weight: bold;
-    display: block; /* Makes link full width */
-    padding: 10px 0;
+    display: block;
+    padding: 10px 10px;
     transition: background 0.3s;
 }
 
@@ -66,7 +74,6 @@
     background: #0077ff;
     color: #fff;
     border-radius: 6px;
-    padding-left: 10px; /* Small hover shift effect */
 }
 
 .toggle-btn {
