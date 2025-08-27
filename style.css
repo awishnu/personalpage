@@ -101,9 +101,14 @@
     margin: 80px auto;
     text-align: center;
     padding: 0 20px;
-    opacity: 0;                  /* Start hidden */
-    transform: translateY(30px); /* Slightly move down */
-    animation: fadeIn 1.5s ease-out forwards; /* Apply animation */
+    opacity: 0;                  /* Initially hidden */
+    transform: translateY(30px); /* Slight downward position */
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.about-section.visible {
+    opacity: 1;                  /* Fully visible */
+    transform: translateY(0);    /* Move to original position */
 }
 
 .about-section h2 {
