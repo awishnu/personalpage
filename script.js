@@ -3,27 +3,29 @@ document.querySelector('.toggle-btn').addEventListener('click', () => {
     document.querySelector('.sidebar nav ul').classList.toggle('show');
 });
 
-// Smooth scroll
+// Smooth scroll for navigation links
 document.querySelectorAll('.sidebar nav ul li a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         target.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
-// Scroll-triggered fade-in for About Me section
+// Scroll-triggered fade-in for ALL sections
 document.addEventListener("DOMContentLoaded", function () {
-    const aboutSection = document.querySelector('.about-section');
+    const sections = document.querySelectorAll('.section');
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                aboutSection.classList.add('visible');
-                observer.unobserve(aboutSection); // Stop observing after animation
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Animate only once
             }
         });
-    }, { threshold: 0.2 }); // Trigger when 20% is visible
+    }, { threshold: 0.2 }); // Trigger when 20% of section is visible
 
-    observer.observe(aboutSection);
+    sections.forEach(section => {
+        observer.observe(section);
+    });
 });
