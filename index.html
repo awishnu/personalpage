@@ -4,25 +4,462 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wishnu's Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 280px;
+      height: 100%;
+      background: linear-gradient(to bottom, #2c3e50, #3498db);
+      border-right: 1px solid #ddd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .sidebar .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .sidebar .profile img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .sidebar .profile h2 {
+      font-size: 24px;
+      margin: 10px 0 5px;
+      font-weight: 600;
+    }
+
+    .sidebar .profile p {
+      font-size: 16px;
+      color: #ecf0f1;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 5px 15px;
+      border-radius: 20px;
+      margin-top: 5px;
+    }
+
+    /* Navigation */
+    .sidebar nav {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .sidebar nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    .sidebar nav ul li {
+      margin: 12px 0;
+    }
+
+    .sidebar nav ul li a {
+      text-decoration: none;
+      color: #ecf0f1;
+      font-weight: 500;
+      display: block;
+      padding: 12px 15px;
+      transition: all 0.3s;
+      text-align: center;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sidebar nav ul li a i {
+      margin-right: 10px;
+    }
+
+    .sidebar nav ul li a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateX(5px);
+    }
+
+    .social-links {
+      margin-top: 30px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 20px;
+      transition: transform 0.3s;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Mobile Toggle */
+    .toggle-btn {
+      display: none;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+      z-index: 1001;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 280px;
+      padding: 20px;
+      transition: margin 0.3s ease;
+    }
+
+    /* Sections (centered + fade-in) */
+    .section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 20px;
+      box-sizing: border-box;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Home Section */
+    .home-section {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      text-align: center;
+    }
+
+    .home-section h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .home-section p {
+      font-size: 1.5rem;
+      max-width: 700px;
+      color: #34495e;
+    }
+
+    .home-section .cta-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .home-section .cta-button:hover {
+      background: #2980b9;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* About Section */
+    .about-section {
+      background: white;
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: left;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      padding: 50px;
+    }
+
+    .about-section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #2c3e50;
+      font-size: 2.5rem;
+    }
+
+    .about-section p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 30px;
+      justify-content: center;
+    }
+
+    .skill-tag {
+      background: #eaf2f8;
+      color: #3498db;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      background: #f8f9fa;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .portfolio-section h2 {
+      margin-bottom: 40px;
+      color: #2c3e50;
+      font-size: 2.5rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      width: 100%;
+    }
+
+    .card {
+      background: white;
+      color: #333;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: bold;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .card i {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #3498db;
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .card p {
+      color: #7f8c8d;
+      font-weight: normal;
+      font-size: 0.9rem;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: white;
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      padding: 50px;
+    }
+
+    .contact-section h2 {
+      margin-bottom: 40px;
+      color: #2c3e50;
+      font-size: 2.5rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      font-size: 1.1rem;
+    }
+
+    .contact-item i {
+      color: #3498db;
+      font-size: 1.5rem;
+    }
+
+    .contact-section a {
+      color: #3498db;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-section a:hover {
+      color: #2980b9;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 220px;
+      }
+      
+      .main-content {
+        margin-left: 220px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px 20px;
+        text-align: left;
+      }
+
+      .sidebar .profile {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .sidebar .profile img {
+        width: 60px;
+        height: 60px;
+        margin-right: 15px;
+        margin-bottom: 0;
+      }
+
+      .sidebar .profile h2 {
+        font-size: 18px;
+        margin: 0;
+      }
+
+      .sidebar .profile p {
+        display: none;
+      }
+
+      .social-links {
+        display: none;
+      }
+
+      .sidebar nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #2c3e50;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 10px 0;
+      }
+
+      .sidebar nav ul.show {
+        display: flex;
+      }
+
+      .toggle-btn {
+        display: block;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+      
+      .home-section h1 {
+        font-size: 2.5rem;
+      }
+      
+      .home-section p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Sidebar -->
   <div class="sidebar">
     <div class="profile">
-      <img src="assets/profilepicture.png" alt="Profile Photo">
+      <img src="assets/profilepicture.png" alt="Ahmad Wishnu">
       <h2>Ahmad Wishnu</h2>
       <p>Data Analyst | AI Enthusiast</p>
     </div>
     <nav>
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#about"><i class="fas fa-user"></i> About Me</a></li>
+        <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
       </ul>
     </nav>
+    
+    <div class="social-links">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    
     <button class="toggle-btn">☰</button>
   </div>
 
@@ -32,6 +469,7 @@
     <section id="home" class="section home-section">
       <h1>Hi, I'm Wishnu</h1>
       <p>Transform data into insights and use AI to complete tasks more efficiently.</p>
+      <a href="#portfolio" class="cta-button">View My Work</a>
     </section>
 
     <!-- About -->
@@ -41,30 +479,101 @@
         I'm a finance professional based in Indonesia, with extensive experience in financial operations within the construction sector. Over the years, I've witnessed how data — when used correctly — can dramatically improve decision-making and operational efficiency.
       </p>
       <p>
-        Driven by curiosity and a desire to evolve, I’ve made it my mission to transition into the world of data analytics, with a special focus on leveraging AI to streamline processes, reduce human error, and make businesses faster and smarter.
+        Driven by curiosity and a desire to evolve, I've made it my mission to transition into the world of data analytics, with a special focus on leveraging AI to streamline processes, reduce human error, and make businesses faster and smarter.
       </p>
       <p>
         Now, I combine real-world business understanding with technical skills in data to help companies unlock hidden value and improve performance through automation and intelligent insights.
       </p>
+      
+      <div class="skills">
+        <span class="skill-tag">Data Analysis</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Financial Modeling</span>
+        <span class="skill-tag">Data Visualization</span>
+        <span class="skill-tag">AI Automation</span>
+      </div>
     </section>
 
     <!-- Portfolio -->
     <section id="portfolio" class="section portfolio-section">
-      <h2>Portfolio</h2>
+      <h2>My Portfolio</h2>
       <div class="portfolio-grid">
-        <div class="card">Project 1</div>
-        <div class="card">Project 2</div>
-        <div class="card">Project 3</div>
+        <div class="card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Sales Data Analysis</h3>
+          <p>Analyzed sales data to identify trends and provide insights for business growth</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-robot"></i>
+          <h3>Process Automation</h3>
+          <p>Developed AI-powered tools to automate repetitive financial tasks</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-database"></i>
+          <h3>Data Visualization</h3>
+          <p>Created interactive dashboards for real-time business metrics monitoring</p>
+        </div>
       </div>
     </section>
 
     <!-- Contact -->
     <section id="contact" class="section contact-section">
-      <h2>Contact</h2>
-      <p>Email: yourname@example.com</p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
-      <p>GitHub: <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></p>
+      <h2>Get In Touch</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>ahmad.wishnu@example.com</span>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-linkedin"></i>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/ahmadwishnu</a>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/yourgithub" target="_blank">github.com/awishnu</a>
+        </div>
+      </div>
+      <p>I'm always interested in new opportunities and collaborations.</p>
     </section>
   </div>
+
+  <script>
+    // Toggle menu on mobile
+    document.querySelector('.toggle-btn').addEventListener('click', () => {
+      document.querySelector('.sidebar nav ul').classList.toggle('show');
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('.sidebar nav ul li a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+        
+        // Close mobile menu after clicking a link
+        if (window.innerWidth <= 768) {
+          document.querySelector('.sidebar nav ul').classList.remove('show');
+        }
+      });
+    });
+
+    // Scroll-triggered fade-in for ALL sections
+    document.addEventListener("DOMContentLoaded", function () {
+      const sections = document.querySelectorAll('.section');
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
 </body>
 </html>
