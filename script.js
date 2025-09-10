@@ -166,3 +166,32 @@ window.addEventListener('scroll', function() {
     }
   });
 });
+
+// Video background loading handler
+function setupVideoBackground() {
+  const video = document.querySelector('.video-bg video');
+  
+  if (video) {
+    // Ensure video plays correctly on mobile devices
+    video.addEventListener('loadedmetadata', function() {
+      video.play();
+    });
+    
+    // Fallback if video fails to load
+    video.addEventListener('error', function() {
+      console.error('Video failed to load, using fallback background');
+      document.querySelector('.home-section').style.background = 'linear-gradient(135deg, #2c3e50 0%, #3498db 100%)';
+    });
+  }
+}
+
+// Call this function in your init() function
+function init() {
+  // Your existing initialization code
+  setupMobileMenu();
+  setupSmoothScrolling();
+  setupScrollAnimations();
+  setupCurrentYear();
+  setupFormHandling();
+  setupVideoBackground(); // Add this line
+}
