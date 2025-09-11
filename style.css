@@ -90,22 +90,6 @@ body {
   font-size: 16px;
 }
 
-.social-links {
-  margin-top: auto;
-  display: flex;
-  gap: 15px;
-}
-
-.social-links a {
-  color: white;
-  font-size: 18px;
-  transition: transform 0.3s;
-}
-
-.social-links a:hover {
-  transform: translateY(-3px);
-}
-
 .toggle-btn {
   display: none;
   position: absolute;
