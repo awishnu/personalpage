@@ -343,11 +343,11 @@ body.menu-open {
   margin-bottom: 30px;
 }
 
-..experience-list li,
+.experience-list li,
 .skills-list li {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 6px 0;
   font-size: 14px;
   color: var(--text-light);
@@ -360,10 +360,6 @@ body.menu-open {
   font-size: 14px;
   margin-right: 8px;
   flex-shrink: 0;
-}
-
-.skills-list li {
-  justify-content: flex-start; /* so icon + text align left */
 }
 
 .skills-list li i {
