@@ -1,44 +1,41 @@
-// DOM Content Loaded
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize the page
+// =============================
+// DOM ready
+// =============================
+document.addEventListener('DOMContentLoaded', () => {
   init();
 });
 
-// Initialize the application
+// =============================
+// Init
+// =============================
 function init() {
-  // Set up mobile menu toggle
   setupMobileMenu();
-  
-  // Set up smooth scrolling for navigation links
   setupSmoothScrolling();
-  
-  // Set up scroll animations for sections
   setupScrollAnimations();
-  
-  // Set up form submission handling
   setupFormHandling();
-  
-  // Set up video background
   setupVideoBackground();
+  setupActiveMenuHighlight();
 }
 
-// Mobile menu functionality
+// =============================
+// Mobile menu
+// =============================
 function setupMobileMenu() {
   const toggleBtn = document.querySelector('.toggle-btn');
   const sidebar = document.querySelector('.sidebar');
   const body = document.body;
-  
+
   if (toggleBtn && sidebar) {
-    toggleBtn.addEventListener('click', function() {
+    toggleBtn.addEventListener('click', () => {
       sidebar.classList.toggle('active');
       body.classList.toggle('menu-open');
     });
   }
-  
-  // Close menu when clicking on a link (for mobile)
+
+  // Close on link click (mobile)
   const navLinks = document.querySelectorAll('.sidebar nav a');
   navLinks.forEach(link => {
-    link.addEventListener('click', function() {
+    link.addEventListener('click', () => {
       if (window.innerWidth <= 768) {
         sidebar.classList.remove('active');
         body.classList.remove('menu-open');
@@ -47,131 +44,165 @@ function setupMobileMenu() {
   });
 }
 
-// Smooth scrolling for navigation links
+// =============================
+// Smooth scrolling (with offset)
+// =============================
 function setupSmoothScrolling() {
   const navLinks = document.querySelectorAll('.sidebar nav a, .cta-buttons a');
-  
+
   navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', e => {
+      const targetId = link.getAttribute('href');
+      if (!targetId || !targetId.startsWith('#')) return;
+
+      const targetSection = document.querySelector(targetId);
+      if (!targetSection) return;
+
       e.preventDefault();
-      
-      const targetId = this.getAttribute('href');
-      if (targetId.startsWith('#')) {
-        const targetSection = document.querySelector(targetId);
-        if (targetSection) {
-          // Calculate the position to scroll to
-          const targetPosition = targetSection.offsetTop;
-          
-          // Smooth scroll to the target section
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-      }
+
+      const offset = 20; // small padding offset
+      const targetPosition = targetSection.offsetTop - offset;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+
+      // Update URL hash without jump
+      history.pushState(null, '', targetId);
     });
   });
 }
 
-// Scroll animations for sections
+// =============================
+// Scroll animations (IntersectionObserver)
+// =============================
 function setupScrollAnimations() {
   const sections = document.querySelectorAll('.section');
-  
+
   const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.2
+    threshold: 0.25
   };
-  
-  const observer = new IntersectionObserver(function(entries, observer) {
+
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        
-        // Stop observing after animation is triggered
+        // no need to observe anymore once visible
         observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
-  
-  // Observe each section
-  sections.forEach(section => {
-    observer.observe(section);
-  });
+
+  sections.forEach(section => observer.observe(section));
 }
 
-// Form submission handling
+// =============================
+// Contact form handling
+// =============================
 function setupFormHandling() {
   const contactForm = document.querySelector('.contact-form');
-  
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Get form data
-      const name = contactForm.querySelector('input[type="text"]').value;
-      const email = contactForm.querySelector('input[type="email"]').value;
-      const message = contactForm.querySelector('textarea').value;
-      
-      // Basic validation
-      if (!name || !email || !message) {
-        alert('Please fill in all fields');
-        return;
-      }
-      
-      // Email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address');
-        return;
-      }
-      
-      // In a real application, you would send the form data to a server here
-      // For this example, we'll just show a success message
-      alert('Thank you for your message! I will get back to you soon.');
-      contactForm.reset();
-    });
+  if (!contactForm) return;
+
+  let statusMessage = contactForm.querySelector('.form-status');
+  if (!statusMessage) {
+    statusMessage = document.createElement('p');
+    statusMessage.className = 'form-status';
+    contactForm.appendChild(statusMessage);
   }
+
+  contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const name = contactForm.querySelector('input[type="text"]')?.value.trim();
+    const email = contactForm.querySelector('input[type="email"]')?.value.trim();
+    const message = contactForm.querySelector('textarea')?.value.trim();
+
+    if (!name || !email || !message) {
+      setStatus('Please fill in all fields', true);
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setStatus('Please enter a valid email address', true);
+      return;
+    }
+
+    // Simulate successful submission
+    setStatus('Thank you for your message! I will get back to you soon.', false);
+    contactForm.reset();
+
+    function setStatus(text, isError = false) {
+      statusMessage.textContent = text;
+      statusMessage.style.color = isError ? '#ff6b6b' : 'var(--secondary)';
+    }
+  });
 }
 
-// Video background loading handler
+// =============================
+// Video background
+// =============================
 function setupVideoBackground() {
   const video = document.querySelector('.video-bg video');
-  
-  if (video) {
-    // Ensure video plays correctly on mobile devices
-    video.addEventListener('loadedmetadata', function() {
-      video.play();
-    });
-    
-    // Fallback if video fails to load
-    video.addEventListener('error', function() {
-      console.error('Video failed to load, using fallback background');
-      document.querySelector('.home-section').style.background = '#0a192f';
-    });
-  }
+  if (!video) return;
+
+  // Ensure autoplay on mobile
+  video.muted = true;
+  video.playsInline = true;
+
+  video.addEventListener('loadedmetadata', () => {
+    const tryPlay = video.play();
+    if (tryPlay && typeof tryPlay.catch === 'function') {
+      tryPlay.catch(() => {
+        // Autoplay blocked: keep overlay background as fallback
+      });
+    }
+  });
+
+  video.addEventListener('error', () => {
+    const home = document.querySelector('.home-section');
+    if (home) home.style.background = '#0a192f';
+  });
 }
 
-// Highlight active menu item on scroll
-window.addEventListener('scroll', function() {
-  const sections = document.querySelectorAll('.section');
-  const navLinks = document.querySelectorAll('.sidebar nav a');
-  
-  let currentSection = '';
-  
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    
-    if (window.scrollY >= sectionTop - 200) {
-      currentSection = section.getAttribute('id');
-    }
-  });
-  
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${currentSection}`) {
-      link.classList.add('active');
-    }
-  });
-});
+// =============================
+// Active menu highlight (debounced)
+// =============================
+function setupActiveMenuHighlight() {
+  const highlight = () => {
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.sidebar nav a');
+
+    let currentSection = '';
+    const scrollPos = window.scrollY;
+
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      if (scrollPos >= top - 200) {
+        currentSection = section.id;
+      }
+    });
+
+    navLinks.forEach(link => {
+      const isActive = link.getAttribute('href') === `#${currentSection}`;
+      link.classList.toggle('active', isActive);
+    });
+  };
+
+  const debounced = debounce(highlight, 60);
+  window.addEventListener('scroll', debounced);
+  window.addEventListener('resize', debounced);
+  // Initial call
+  highlight();
+}
+
+function debounce(func, wait = 20) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(null, args), wait);
+  };
+}
