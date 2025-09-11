@@ -343,14 +343,31 @@ body.menu-open {
   margin-bottom: 30px;
 }
 
-.experience-list li,
+..experience-list li,
 .skills-list li {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 6px 0;
   font-size: 14px;
   color: var(--text-light);
   border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.experience-list li i,
+.skills-list li i {
+  color: var(--primary);
+  font-size: 14px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.skills-list li {
+  justify-content: flex-start; /* so icon + text align left */
+}
+
+.skills-list li i {
+  font-size: 16px;
 }
 
 .job-title {
