@@ -11,6 +11,7 @@ body {
   line-height: 1.6;
   color: #e0f7fa;
   background-color: #0a192f; /* Deep navy blue */
+  overflow-x: hidden;
 }
 
 /* Sidebar Styles */
@@ -20,7 +21,7 @@ body {
   top: 0;
   width: 260px;
   height: 100%;
-  background: linear-gradient(to bottom, #0a192f, #112240);
+  background-color: #112240; /* Dark blue */
   color: #e0f7fa;
   padding: 30px 20px;
   display: flex;
@@ -29,7 +30,7 @@ body {
   z-index: 1000;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  border-right: 1px solid #112240;
+  border-right: 1px solid #1d3a6b;
 }
 
 .profile {
@@ -42,22 +43,20 @@ body {
   height: 130px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid rgba(23, 195, 178, 0.3);
+  border: 4px solid #17c3b2;
   margin-bottom: 15px;
-  box-shadow: 0 0 20px rgba(23, 195, 178, 0.3);
 }
 
 .profile h2 {
   font-size: 20px;
   margin-bottom: 5px;
   font-weight: 600;
-  color: #17c3b2; /* Teal accent */
+  color: #17c3b2;
 }
 
 .profile p {
   font-size: 14px;
-  opacity: 0.9;
-  color: #64ffda; /* Light teal */
+  color: #64ffda;
 }
 
 .sidebar nav {
@@ -85,7 +84,7 @@ body {
 
 .sidebar nav ul li a:hover,
 .sidebar nav ul li a.active {
-  background: rgba(23, 195, 178, 0.1);
+  background-color: #1d3a6b;
   transform: translateX(5px);
   color: #64ffda;
 }
@@ -112,7 +111,7 @@ body {
   margin-left: 260px;
   padding: 0;
   transition: margin 0.3s ease;
-  background: #0a192f;
+  background-color: #0a192f;
 }
 
 /* Sections */
@@ -154,15 +153,15 @@ body {
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: #17c3b2;
+  background-color: #17c3b2;
   border-radius: 2px;
 }
 
-/* Home Section with Video Background */
+/* Home Section */
 .home-section {
   position: relative;
   overflow: hidden;
-  background: #0a192f; /* Fallback color if video doesn't load */
+  background-color: #0a192f;
   color: #e0f7fa;
   text-align: center;
 }
@@ -195,7 +194,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 25, 47, 0.85); /* Deep blue overlay */
+  background-color: rgba(10, 25, 47, 0.85);
 }
 
 .home-content {
@@ -207,7 +206,6 @@ body {
   font-size: 48px;
   margin-bottom: 20px;
   color: #e0f7fa;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .highlight {
@@ -239,31 +237,31 @@ body {
 }
 
 .btn-primary {
-  background: #17c3b2;
+  background-color: #17c3b2;
   color: #0a192f;
 }
 
 .btn-primary:hover {
-  background: #64ffda;
+  background-color: #64ffda;
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(23, 195, 178, 0.4);
 }
 
 .btn-secondary {
-  background: transparent;
+  background-color: transparent;
   color: #64ffda;
   border: 2px solid #17c3b2;
 }
 
 .btn-secondary:hover {
-  background: rgba(23, 195, 178, 0.1);
+  background-color: rgba(23, 195, 178, 0.1);
   color: #64ffda;
   transform: translateY(-3px);
 }
 
 /* About Section */
 .about-section {
-  background: #0a192f;
+  background-color: #0a192f;
 }
 
 .about-content {
@@ -295,7 +293,7 @@ body {
 .skill-item {
   display: flex;
   align-items: center;
-  background: rgba(23, 195, 178, 0.1);
+  background-color: rgba(23, 195, 178, 0.1);
   padding: 12px 15px;
   border-radius: 8px;
   transition: all 0.3s;
@@ -303,7 +301,7 @@ body {
 }
 
 .skill-item:hover {
-  background: rgba(23, 195, 178, 0.2);
+  background-color: rgba(23, 195, 178, 0.2);
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(23, 195, 178, 0.2);
 }
@@ -321,17 +319,17 @@ body {
 
 /* Portfolio Section */
 .portfolio-section {
-  background: #112240;
+  background-color: #112240;
 }
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr);
   gap: 30px;
 }
 
 .portfolio-card {
-  background: rgba(23, 195, 178, 0.1);
+  background-color: rgba(23, 195, 178, 0.1);
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -343,13 +341,13 @@ body {
 .portfolio-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(23, 195, 178, 0.3);
-  background: rgba(23, 195, 178, 0.15);
+  background-color: rgba(23, 195, 178, 0.15);
 }
 
 .card-icon {
   width: 70px;
   height: 70px;
-  background: rgba(23, 195, 178, 0.2);
+  background-color: rgba(23, 195, 178, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -381,7 +379,7 @@ body {
 }
 
 .card-tags span {
-  background: rgba(23, 195, 178, 0.2);
+  background-color: rgba(23, 195, 178, 0.2);
   color: #64ffda;
   padding: 5px 10px;
   border-radius: 20px;
@@ -392,7 +390,7 @@ body {
 
 /* Contact Section */
 .contact-section {
-  background: #0a192f;
+  background-color: #0a192f;
 }
 
 .contact-content {
@@ -410,7 +408,7 @@ body {
 .contact-icon {
   width: 50px;
   height: 50px;
-  background: rgba(23, 195, 178, 0.1);
+  background-color: rgba(23, 195, 178, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -436,7 +434,7 @@ body {
 }
 
 .contact-form {
-  background: rgba(23, 195, 178, 0.1);
+  background-color: rgba(23, 195, 178, 0.1);
   padding: 30px;
   border-radius: 10px;
   border: 1px solid rgba(23, 195, 178, 0.2);
@@ -460,7 +458,7 @@ body {
   border-radius: 6px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
-  background: rgba(10, 25, 47, 0.7);
+  background-color: rgba(10, 25, 47, 0.7);
   color: #e0f7fa;
 }
 
@@ -505,7 +503,7 @@ body {
     top: 20px;
     left: 20px;
     z-index: 999;
-    background: rgba(23, 195, 178, 0.8);
+    background-color: rgba(23, 195, 178, 0.8);
     width: 45px;
     height: 45px;
     border-radius: 50%;
