@@ -311,6 +311,7 @@ body.menu-open {
 /* =========================
    About section
    ========================= */
+/* New About Section Layout */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
