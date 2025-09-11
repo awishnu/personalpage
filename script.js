@@ -1,4 +1,4 @@
-// DOM Content Loaded
+\// DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize the page
   init();
@@ -15,11 +15,11 @@ function init() {
   // Set up scroll animations for sections
   setupScrollAnimations();
   
-  // Set up the current year in footer if exists
-  setupCurrentYear();
-  
   // Set up form submission handling
   setupFormHandling();
+  
+  // Set up video background
+  setupVideoBackground();
 }
 
 // Mobile menu functionality
@@ -59,7 +59,7 @@ function setupSmoothScrolling() {
       if (targetId.startsWith('#')) {
         const targetSection = document.querySelector(targetId);
         if (targetSection) {
-          // Calculate the position to scroll to (considering fixed header if any)
+          // Calculate the position to scroll to
           const targetPosition = targetSection.offsetTop;
           
           // Smooth scroll to the target section
@@ -100,14 +100,6 @@ function setupScrollAnimations() {
   });
 }
 
-// Set current year in footer
-function setupCurrentYear() {
-  const yearElement = document.getElementById('current-year');
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
-}
-
 // Form submission handling
 function setupFormHandling() {
   const contactForm = document.querySelector('.contact-form');
@@ -117,7 +109,6 @@ function setupFormHandling() {
       e.preventDefault();
       
       // Get form data
-      const formData = new FormData(contactForm);
       const name = contactForm.querySelector('input[type="text"]').value;
       const email = contactForm.querySelector('input[type="email"]').value;
       const message = contactForm.querySelector('textarea').value;
@@ -139,6 +130,24 @@ function setupFormHandling() {
       // For this example, we'll just show a success message
       alert('Thank you for your message! I will get back to you soon.');
       contactForm.reset();
+    });
+  }
+}
+
+// Video background loading handler
+function setupVideoBackground() {
+  const video = document.querySelector('.video-bg video');
+  
+  if (video) {
+    // Ensure video plays correctly on mobile devices
+    video.addEventListener('loadedmetadata', function() {
+      video.play();
+    });
+    
+    // Fallback if video fails to load
+    video.addEventListener('error', function() {
+      console.error('Video failed to load, using fallback background');
+      document.querySelector('.home-section').style.background = '#0a192f';
     });
   }
 }
@@ -166,32 +175,3 @@ window.addEventListener('scroll', function() {
     }
   });
 });
-
-// Video background loading handler
-function setupVideoBackground() {
-  const video = document.querySelector('.video-bg video');
-  
-  if (video) {
-    // Ensure video plays correctly on mobile devices
-    video.addEventListener('loadedmetadata', function() {
-      video.play();
-    });
-    
-    // Fallback if video fails to load
-    video.addEventListener('error', function() {
-      console.error('Video failed to load, using fallback background');
-      document.querySelector('.home-section').style.background = 'linear-gradient(135deg, #2c3e50 0%, #3498db 100%)';
-    });
-  }
-}
-
-// Call this function in your init() function
-function init() {
-  // Your existing initialization code
-  setupMobileMenu();
-  setupSmoothScrolling();
-  setupScrollAnimations();
-  setupCurrentYear();
-  setupFormHandling();
-  setupVideoBackground(); // Add this line
-}
