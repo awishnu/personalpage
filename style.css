@@ -12,7 +12,6 @@
   --shadow: rgba(0, 0, 0, 0.2);
   --glass-1: rgba(255, 255, 255, 0.05);
   --glass-2: rgba(255, 255, 255, 0.1);
-  --metal-gradient: linear-gradient(135deg, #d1d1d1 0%, #f0f0f0 50%, #c0c0c0 100%);
 }
 
 /* =========================
@@ -112,6 +111,7 @@ img {
   border-radius: 6px;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
   font-size: 15px;
+  outline: none;
 }
 
 .sidebar nav ul li a:hover,
@@ -119,6 +119,11 @@ img {
   background-color: var(--border);
   transform: translateX(5px);
   color: var(--secondary);
+}
+
+.sidebar nav ul li a:focus {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
 }
 
 .sidebar nav ul li a i {
@@ -193,7 +198,7 @@ body.menu-open {
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: var(--metal-gradient);
+  background-color: var(--primary);
   border-radius: 2px;
 }
 
@@ -249,9 +254,7 @@ body.menu-open {
 }
 
 .highlight {
-  background: var(--metal-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary);
   font-weight: 700;
 }
 
@@ -279,26 +282,25 @@ body.menu-open {
 }
 
 .btn-primary {
-  background: var(--metal-gradient);
+  background-color: var(--primary);
   color: var(--bg-dark);
-  border: none;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 50%, #d1d1d1 100%);
+  background-color: var(--secondary);
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
 }
 
 .btn-secondary {
-  background: transparent;
+  background-color: transparent;
   color: var(--secondary);
   border: 2px solid var(--primary);
 }
 
 .btn-secondary:hover {
-  background: var(--metal-gradient);
-  color: var(--bg-dark);
+  background-color: var(--glass-1);
+  transform: translateY(-3px);
 }
 
 /* =========================
@@ -343,14 +345,13 @@ body.menu-open {
   padding: 6px 0;
   font-size: 14px;
   color: var(--text-light);
+  border-bottom: 1
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .experience-list li i,
 .skills-list li i {
-  background: var(--metal-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary);
   font-size: 14px;
   margin-right: 8px;
   flex-shrink: 0;
@@ -370,8 +371,7 @@ body.menu-open {
 
 .about-divider {
   border: none;
-  height: 2px;
-  background: var(--metal-gradient);
+  border-top: 1px solid rgba(255,255,255,0.1);
   margin: 10px 0 20px;
 }
 
@@ -400,7 +400,7 @@ body.menu-open {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 5px 15px var(--shadow);
-  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   text-align: center;
   border: 1px solid var(--glass-2);
 }
@@ -414,7 +414,7 @@ body.menu-open {
 .card-icon {
   width: 70px;
   height: 70px;
-  background: var(--metal-gradient);
+  background-color: var(--glass-2);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -424,7 +424,7 @@ body.menu-open {
 
 .card-icon i {
   font-size: 30px;
-  color: var(--bg-dark);
+  color: var(--primary);
 }
 
 .portfolio-card h3 {
@@ -478,17 +478,18 @@ body.menu-open {
 .contact-icon {
   width: 50px;
   height: 50px;
-  background: var(--metal-gradient);
+  background-color: var(--glass-1);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 15px;
+  border: 1px solid var(--glass-2);
 }
 
 .contact-icon i {
   font-size: 20px;
-  color: var(--bg-dark);
+  color: var(--primary);
 }
 
 .contact-details h3 {
@@ -639,6 +640,14 @@ body.menu-open {
   }
 
   .home-content p {
+    font-size: 16px;
+  }
+
+  .skill-item i {
+    font-size: 32px;
+  }
+
+  .skill-item span {
     font-size: 16px;
   }
 }
